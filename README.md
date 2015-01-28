@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 The Contiki Operating System
 ============================
 
@@ -17,3 +18,7 @@ and so on.
 For more information, see the Contiki website:
 
 [http://contiki-os.org](http://contiki-os.org)
+=======
+# contiki-cc2538-custom
+contiki-os for custom cc2538 device
+>>>>>>> 8778b35390778c33cc4b74cb337ded4aa5230ba4
