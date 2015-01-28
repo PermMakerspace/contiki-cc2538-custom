@@ -107,9 +107,9 @@ btn_callback(uint8_t port, uint8_t pin)
     sensors_changed(&button_select_sensor);
   } else if(port == GPIO_C_NUM) {
     switch(pin) {
-    case BUTTON_LEFT_PIN:
+/*    case BUTTON_LEFT_PIN:
       sensors_changed(&button_left_sensor);
-      break;
+      break;*/
     case BUTTON_RIGHT_PIN:
       sensors_changed(&button_right_sensor);
       break;
@@ -122,6 +122,8 @@ btn_callback(uint8_t port, uint8_t pin)
     default:
       return;
     }
+  }else if(port == GPIO_B_NUM){
+	sensors_changed(&button_left_sensor);
   }
 }
 /*---------------------------------------------------------------------------*/

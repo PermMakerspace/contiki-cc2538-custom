@@ -1,8 +1,8 @@
 DEFINES+=PROJECT_CONF_H=\"project-conf.h\"
-CONTIKI_PROJECT = cc2538-demo timer-test cc2538-demo-user user-demo user-demo-2
+CONTIKI_PROJECT = user-demo
 
 all: $(CONTIKI_PROJECT)
 
-CONTIKI = ../..
+CONTIKI = ../../..
 CONTIKI_WITH_RIME = 1
 include $(CONTIKI)/Makefile.include
