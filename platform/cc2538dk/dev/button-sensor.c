@@ -98,33 +98,23 @@ config(uint32_t port_base, uint32_t pin_mask)
 static void
 btn_callback(uint8_t port, uint8_t pin)
 {
-  if(!timer_expired(&debouncetimer)) {
-    return;
-  }
-
-  timer_set(&debouncetimer, CLOCK_SECOND / 8);
-  if(port == GPIO_A_NUM) {
-    sensors_changed(&button_select_sensor);
-  } else if(port == GPIO_C_NUM) {
-    switch(pin) {
-/*    case BUTTON_LEFT_PIN:
-      sensors_changed(&button_left_sensor);
-      break;*/
-    case BUTTON_RIGHT_PIN:
-      sensors_changed(&button_right_sensor);
-      break;
-    case BUTTON_UP_PIN:
-      sensors_changed(&button_up_sensor);
-      break;
-    case BUTTON_DOWN_PIN:
-      sensors_changed(&button_down_sensor);
-      break;
-    default:
-      return;
-    }
-  }else if(port == GPIO_B_NUM){
-	sensors_changed(&button_left_sensor);
-  }
+	//it's not self-explanatory. we don't need debounce, because frequency sensor is connected to that "button".
+	if((port == BUTTON_RIGHT_PORT) && (pin == BUTTON_RIGHT_PIN)){
+		sensors_changed(&button_right_sensor);
+	}else if(!timer_expired(&debouncetimer)) {
+    		return;
+  	}else{
+		timer_set(&debouncetimer, CLOCK_SECOND / 8);
+		if((port == BUTTON_SELECT_PORT) && (pin == BUTTON_SELECT_PIN)){
+    			sensors_changed(&button_select_sensor);
+		}else if((port == BUTTON_LEFT_PORT) && (pin == BUTTON_LEFT_PIN)){
+      			sensors_changed(&button_left_sensor);
+		}else if((port == BUTTON_UP_PORT) && (pin == BUTTON_UP_PIN)){
+      			sensors_changed(&button_up_sensor);
+	      	}else if((port == BUTTON_DOWN_PORT) && (pin == BUTTON_DOWN_PIN)){
+      			sensors_changed(&button_down_sensor);
+	      	}
+	}
 }
 /*---------------------------------------------------------------------------*/
 /**

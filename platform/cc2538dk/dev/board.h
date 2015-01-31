@@ -114,11 +114,14 @@
  * UART1_* below.
  * @{
  */
+
+/* for contiki-cc2538-custom UART0 and SPI are exchanged */
+
 #define UART0_RX_PORT            GPIO_A_NUM
-#define UART0_RX_PIN             0
+#define UART0_RX_PIN             4
 
 #define UART0_TX_PORT            GPIO_A_NUM
-#define UART0_TX_PIN             1
+#define UART0_TX_PIN             5
 
 #define UART1_CTS_PORT           GPIO_B_NUM
 #define UART1_CTS_PIN            0
@@ -143,13 +146,15 @@
 #define BUTTON_SELECT_VECTOR     NVIC_INT_GPIO_PORT_A
 
 /** BUTTON_LEFT -> PC4 */
+/* for contiki-cc2538-custom left button is left button*/
 #define BUTTON_LEFT_PORT         GPIO_B_NUM
-#define BUTTON_LEFT_PIN          1
+#define BUTTON_LEFT_PIN          0
 #define BUTTON_LEFT_VECTOR       NVIC_INT_GPIO_PORT_B
 
 /** BUTTON_RIGHT -> PC5 */
-#define BUTTON_RIGHT_PORT        GPIO_C_NUM
-#define BUTTON_RIGHT_PIN         5
+/* and the right button is frequency sensor */
+#define BUTTON_RIGHT_PORT        GPIO_B_NUM
+#define BUTTON_RIGHT_PIN         1
 #define BUTTON_RIGHT_VECTOR      NVIC_INT_GPIO_PORT_C
 
 /** BUTTON_UP -> PC6 */
@@ -189,9 +194,9 @@
 #define SPI_CLK_PORT             GPIO_A_NUM
 #define SPI_CLK_PIN              2
 #define SPI_MOSI_PORT            GPIO_A_NUM
-#define SPI_MOSI_PIN             4
+#define SPI_MOSI_PIN             0
 #define SPI_MISO_PORT            GPIO_A_NUM
-#define SPI_MISO_PIN             5
+#define SPI_MISO_PIN             1
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
