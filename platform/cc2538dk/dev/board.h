@@ -203,7 +203,7 @@
  * \name Device string used on startup
  * @{
  */
-#define BOARD_STRING "TI SmartRF06 + cc2538EM"
+#define BOARD_STRING "TI cc2538 WSN Metering board"
 /** @} */
 
 #endif /* BOARD_H_ */
